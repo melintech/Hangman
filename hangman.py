@@ -1,4 +1,5 @@
 import random
+from drawing import afiseaza_spanzuratoarea
 
 def incarca_cuvinte(categorie):
     fisier = f"categorii/{categorie}.txt"
@@ -59,9 +60,10 @@ def joc():
     cuvant_ghicit = ["_" for _ in cuvant]
     litere_incercate = set()
     greseli = 0
-    incercari_maxime = len(cuvant) # Aici putem ajusta eventual numarul de incercari
+    incercari_maxime = max(6, len(cuvant))
 
     while "_" in cuvant_ghicit and greseli < incercari_maxime:
+        afiseaza_spanzuratoarea(greseli)
         print("\nCuvantul curent:", " ".join(cuvant_ghicit))
         print("Litere incercate:", ", ".join(sorted(litere_incercate)))
         print("Incercari ramase:", incercari_maxime - greseli)
